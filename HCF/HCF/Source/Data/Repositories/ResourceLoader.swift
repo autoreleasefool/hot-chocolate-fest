@@ -38,7 +38,7 @@ enum Resources {
 
 	struct Region: Decodable {
 		let name: String
-		let locations: Location
+		let locations: [Location]
 	}
 
 	struct Location: Decodable {
