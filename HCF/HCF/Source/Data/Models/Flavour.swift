@@ -2,13 +2,11 @@ import CoreLocation
 import Foundation
 
 struct Flavour: Identifiable {
+	let id: Int
 	let name: String
 	let description: String
-	let startDate: Date
-	let endDate: Date
+	let availability: [DateInterval]
 	let vendor: Vendor
-
-	var id: String { name }
 }
 
 extension Flavour {

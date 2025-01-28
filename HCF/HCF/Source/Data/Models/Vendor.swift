@@ -11,11 +11,9 @@ struct Vendor: Identifiable {
 
 extension Vendor {
 	struct Flavour: Identifiable {
+		let id: Int
 		let name: String
 		let description: String
-		let startDate: Date
-		let endDate: Date
-
-		var id: String { name }
+		let availability: [DateInterval]
 	}
 }

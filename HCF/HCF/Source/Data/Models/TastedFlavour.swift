@@ -2,10 +2,9 @@ import SwiftData
 
 @Model
 class TastedFlavour: Identifiable {
-	@Attribute(.unique) var name: String
-	var id: String { name }
+	@Attribute(.unique) var flavourId: Int
 
-	init(name: String) {
-		self.name = name
+	init(flavourId: Int) {
+		self.flavourId = flavourId
 	}
 }
