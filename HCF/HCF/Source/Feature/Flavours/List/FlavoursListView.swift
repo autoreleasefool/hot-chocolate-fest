@@ -18,34 +18,12 @@ struct FlavoursListView: View {
 		List {
 			ForEach(flavours) { flavour in
 				FlavourView(
-					name: flavour.name,
-					isFavourite: favouriteIds.contains(flavour.id)
+					flavour: flavour,
+					isFavourite: favouriteIds.contains(flavour.id),
+					isTasted: tastedIds.contains(flavour.id),
+					onToggleFavourite: { await toggleFavourite(flavour) },
+					onToggleTaste: { await toggleTaste(flavour) }
 				)
-				.swipeActions(edge: .trailing) {
-					Button {
-						Task {
-							await toggleFavourite(flavour)
-						}
-					} label: {
-						if favouriteIds.contains(flavour.id) {
-							Label("Unfavourite", systemImage: "star.slash")
-						} else {
-							Label("Favourite", systemImage: "star")
-						}
-					}
-
-					Button {
-						Task {
-							await toggleTaste(flavour)
-						}
-					} label: {
-						if tastedIds.contains(flavour.id) {
-							Label("Remove", systemImage: "cup.and.saucer")
-						} else {
-							Label("Taste", systemImage: "cup.and.heat.waves")
-						}
-					}
-				}
 			}
 		}
 		.task { await refreshFlavours() }
@@ -76,6 +54,9 @@ struct FlavoursListView: View {
 					}
 				}
 			}
+		}
+		.navigationDestination(for: Flavour.self) { flavour in
+			FlavourDetailsView(flavour: flavour)
 		}
 	}
 

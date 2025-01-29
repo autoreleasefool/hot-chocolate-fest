@@ -22,7 +22,7 @@ actor FlavourRepository {
 				availability: retrieveAvailability(fromText: $0.description),
 				vendor: Flavour.Vendor(
 					name: $0.vendor_name,
-					location: .init(),
+					location: .init(latitude: 0.0, longitude: 0.0),
 					website: $0.vendor_url
 				)
 			)

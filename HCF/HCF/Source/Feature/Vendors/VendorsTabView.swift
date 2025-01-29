@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct VendorListTabView: View {
+struct VendorsTabView: View {
 	var body: some View {
 		NavigationStack {
-			Text("Vendor List")
+			VendorsView()
 		}
 	}
 }

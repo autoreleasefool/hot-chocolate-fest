@@ -9,12 +9,8 @@ struct HCTabView: View {
 				FlavoursTabView()
 			}
 
-			Tab("Map", systemImage: "map", value: .map) {
-				MapTabView()
-			}
-
 			Tab("Locations", systemImage: "mappin.and.ellipse.circle", value: .vendors) {
-				VendorListTabView()
+				VendorsTabView()
 			}
 		}
 	}

@@ -2,15 +2,46 @@ import SwiftUI
 import SwiftData
 
 struct FlavourView: View {
-	let name: String
+	let flavour: Flavour
+
 	let isFavourite: Bool
+	let isTasted: Bool
+	let onToggleFavourite: () async -> Void
+	let onToggleTaste: () async -> Void
 
 	var body: some View {
-		HStack {
-			Image(systemName: "star")
-				.symbolVariant(isFavourite ? .fill : .none)
+		NavigationLink(value: flavour) {
+			HStack {
+				Image(systemName: "star")
+					.symbolVariant(isFavourite ? .fill : .none)
+				
+				Text(flavour.name)
+			}
+		}
+		.swipeActions(edge: .trailing) {
+			Button {
+				Task {
+					await onToggleFavourite()
+				}
+			} label: {
+				if isFavourite {
+					Label("Unfavourite", systemImage: "star.slash")
+				} else {
+					Label("Favourite", systemImage: "star")
+				}
+			}
 
-			Text(name)
+			Button {
+				Task {
+					await onToggleTaste()
+				}
+			} label: {
+				if isTasted {
+					Label("Remove", systemImage: "cup.and.saucer")
+				} else {
+					Label("Taste", systemImage: "cup.and.heat.waves")
+				}
+			}
 		}
 	}
 }

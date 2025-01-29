@@ -1,7 +1,7 @@
 import CoreLocation
 import Foundation
 
-struct Flavour: Identifiable {
+struct Flavour: Identifiable, Hashable {
 	let id: Int
 	let name: String
 	let description: String
@@ -10,9 +10,20 @@ struct Flavour: Identifiable {
 }
 
 extension Flavour {
-	struct Vendor {
+	struct Vendor: Hashable {
 		let name: String
-		let location: CLLocationCoordinate2D
+		let location: Location
 		let website: URL
+	}
+}
+
+extension Flavour.Vendor {
+	struct Location: Hashable {
+		let latitude: Double
+		let longitude: Double
+
+		var coordinate: CLLocationCoordinate2D {
+			CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+		}
 	}
 }
