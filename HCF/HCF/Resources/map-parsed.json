@@ -1,553 +1,545 @@
 [
-  {
-    "name": "Westside / Kerrisdale",
-    "locations": [
-      {
-        "name": ["Artigiano Kerrisdale"],
-        "lat": 49.23447700000001,
-        "lon": -123.157321
-      },
-      {
-        "name": ["Butter Baked Goods Ltd"],
-        "lat": 49.24213959999999,
-        "lon": -123.1704061
-      },
-      {
-        "name": ["Doughgirls Comfort Kitchen u0026 Bakeshop"],
-        "lat": 49.2546326,
-        "lon": -123.2358687
-      },
-      {
-        "name": ["Faubourg Kerrisdale"],
-        "lat": 49.23437680000001,
-        "lon": -123.1574157
-      },
-      { "name": ["Gem Chocolates"], "lat": 49.2346862, "lon": -123.1529626 },
-      {
-        "name": ["Honolulu Coffee Kerrisdale"],
-        "lat": 49.2344032,
-        "lon": -123.1548587
-      },
-      { "name": ["NUTTEA"], "lat": 49.26788649999999, "lon": -123.1492145 }
-    ]
-  },
-  {
-    "name": "North Vancouver / West Vancouver",
-    "locations": [
-      {
-        "name": [
-          "49th Parallel Caf\u00e9 u0026 Luckyu0027s Doughnuts - Lonsdale"
-        ],
-        "lat": 49.3118285,
-        "lon": -123.0789768
-      },
-      { "name": ["Artigiano Edgemont"], "lat": 49.337783, "lon": -123.101031 },
-      {
-        "name": ["Artigiano Shipyards"],
-        "lat": 49.3094613,
-        "lon": -123.079254
-      },
-      {
-        "name": ["BjornBar Bakery - Edgemont Village"],
-        "lat": 49.33685620000001,
-        "lon": -123.1015954
-      },
-      {
-        "name": ["Casa Mia Cucina and Mercato"],
-        "lat": 49.3311034,
-        "lon": -123.1713639
-      },
-      {
-        "name": ["Modern Pantry (The) - West Van"],
-        "lat": 49.3309372,
-        "lon": -123.1722515
-      },
-      {
-        "name": ["Temper Chocolate u0026 Pastry"],
-        "lat": 49.33453069999999,
-        "lon": -123.1797811
-      },
-      {
-        "name": ["Thierry Ambleside"],
-        "lat": 49.32722579999999,
-        "lon": -123.152951
-      },
-      {
-        "name": ["Thomas Haas - North Vancouver"],
-        "lat": 49.314834,
-        "lon": -123.100492
-      },
-      {
-        "name": ["Welcome Parlour Ice Cream"],
-        "lat": 49.30983879999999,
-        "lon": -123.0786198
-      }
-    ]
-  },
-  {
-    "name": "Downtown Vancouver",
-    "locations": [
-      {
-        "name": [
-          "49th Parallel Caf\u00e9 u0026 Luckyu0027s Doughnuts - Thurlow"
-        ],
-        "lat": 49.2860839,
-        "lon": -123.1229468
-      },
-      {
-        "name": ["Aiyaohno Cafe"],
-        "lat": 49.28117619999999,
-        "lon": -123.1046462
-      },
-      { "name": ["Analog Coffee"], "lat": 49.2757429, "lon": -123.1211382 },
-      {
-        "name": ["Artigiano Hornby"],
-        "lat": 49.28315720000001,
-        "lon": -123.1214928
-      },
-      {
-        "name": ["Artigiano Howe u0026 Hastings"],
-        "lat": 49.2859024,
-        "lon": -123.1152035
-      },
-      { "name": ["Artigiano Pender"], "lat": 49.287703, "lon": -123.120432 },
-      { "name": ["Artigiano Robson"], "lat": 49.2777895, "lon": -123.1139885 },
-      {
-        "name": ["Artigiano Roundhouse"],
-        "lat": 49.2732579,
-        "lon": -123.1207515
-      },
-      {
-        "name": ["Beaucoup Bakery"],
-        "lat": 49.28304139999999,
-        "lon": -123.115859
-      },
-      {
-        "name": ["Bel Caf\u00e9"],
-        "lat": 49.28336249999999,
-        "lon": -123.1190853
-      },
-      {
-        "name": ["Bella Gelateria - English Bay"],
-        "lat": 49.2865973,
-        "lon": -123.1410889
-      },
-      {
-        "name": ["Bella Gelateria - Howe"],
-        "lat": 49.28423799999999,
-        "lon": -123.1178226
-      },
-      {
-        "name": ["Bella Gelateria - Robson"],
-        "lat": 49.2872083,
-        "lon": -123.1285503
-      },
-      { "name": ["Bellaggio Cafe"], "lat": 49.282985, "lon": -123.1215366 },
-      { "name": ["Boba Run"], "lat": 49.2818569, "lon": -123.1075825 },
-      {
-        "name": ["Broy\u00e9 Cafe u0026 Bakery"],
-        "lat": 49.2854132,
-        "lon": -123.1172916
-      },
-      { "name": ["Cadeaux Bakery"], "lat": 49.283093, "lon": -123.10047 },
-      {
-        "name": ["Caff\u00e8 Super Veloce"],
-        "lat": 49.2883304,
-        "lon": -123.1176432
-      },
-      {
-        "name": ["Charisma Social Club House"],
-        "lat": 49.2799406,
-        "lon": -123.1087145
-      },
-      { "name": ["Elysian Downtown"], "lat": 49.2798624, "lon": -123.127701 },
-      { "name": ["Faubourg Hornby"], "lat": 49.2831054, "lon": -123.1214493 },
-      { "name": ["Faubourg Yaletown"], "lat": 49.2745455, "lon": -123.122478 },
-      {
-        "name": ["Giovane Caff\u00e8 Georgia"],
-        "lat": 49.280711,
-        "lon": -123.1156954
-      },
-      {
-        "name": ["Giovane Caff\u00e8 Pacific Rim"],
-        "lat": 49.2881201,
-        "lon": -123.1166456
-      },
-      { "name": ["Guffo Caf\u00e9"], "lat": 49.2863933, "lon": -123.1144449 },
-      {
-        "name": ["Honolulu Coffee Nelson"],
-        "lat": 49.2799401,
-        "lon": -123.1250129
-      },
-      {
-        "name": ["Kafkau0027s Coffee Roasting, Richards"],
-        "lat": 49.2790026,
-        "lon": -123.1191277
-      },
-      { "name": ["Ladur\u00e9e"], "lat": 49.2853412, "lon": -123.1256195 },
-      {
-        "name": ["Mercato di Luigi"],
-        "lat": 49.27871209999999,
-        "lon": -123.0992481
-      },
-      {
-        "name": ["Mink Chocolates, West Hastings"],
-        "lat": 49.2866483,
-        "lon": -123.1153868
-      },
-      { "name": ["Motoretta Gelato"], "lat": 49.2878512, "lon": -123.1163619 },
-      {
-        "name": ["Nelson the Seagull"],
-        "lat": 49.2821602,
-        "lon": -123.1045601
-      },
-      {
-        "name": ["Paul Bakery, Caf\u00e9 and Restaurant"],
-        "lat": 49.28550740000001,
-        "lon": -123.1264747
-      },
-      {
-        "name": ["PAUL Le Caf\u00e9"],
-        "lat": 49.28143860000001,
-        "lon": -123.1182228
-      },
-      {
-        "name": ["Peaked Pies Denman (Vancouver)"],
-        "lat": 49.2897,
-        "lon": -123.1384318
-      },
-      {
-        "name": ["Purebread - Gastown"],
-        "lat": 49.2825121,
-        "lon": -123.1090815
-      },
-      {
-        "name": ["Tartine Bread u0026 Pies"],
-        "lat": 49.2744814,
-        "lon": -123.1317314
-      },
-      {
-        "name": ["Thierry Alberni"],
-        "lat": 49.28488100000001,
-        "lon": -123.122643
-      },
-      {
-        "name": ["Uno Gelato Vancouver Convention Centre"],
-        "lat": 49.2890724,
-        "lon": -123.1145049
-      },
-      { "name": ["Vancouver Aquarium"], "lat": 49.3004876, "lon": -123.1308774 }
-    ]
-  },
-  {
-    "name": "Burnaby",
-    "locations": [
-      { "name": ["Artigiano Burnaby"], "lat": 49.2812942, "lon": -123.0066771 },
-      {
-        "name": ["Bella Gelateria - Brentwood"],
-        "lat": 49.26861139999999,
-        "lon": -123.001547
-      },
-      { "name": ["Chez Christophe"], "lat": 49.2811522, "lon": -122.9965661 },
-      {
-        "name": ["Glenburn Soda Fountain u0026 Confectionery"],
-        "lat": 49.28090599999999,
-        "lon": -123.0146193
-      },
-      {
-        "name": ["Mon Paris Patisserie"],
-        "lat": 49.2259371,
-        "lon": -123.0054369
-      },
-      {
-        "name": ["Peaked Pies Burnaby Heights"],
-        "lat": 49.2808061,
-        "lon": -123.0135687
-      },
-      {
-        "name": ["The Pie Hole - Burnaby"],
-        "lat": 49.2198783,
-        "lon": -122.9285569
-      }
-    ]
-  },
-  {
-    "name": "Mount Pleasant / East Vancouver",
-    "locations": [
-      {
-        "name": ["49th Parallel Caf\u00e9 u0026 Luckyu0027s Doughnuts - MAIN"],
-        "lat": 49.2591539,
-        "lon": -123.1007927
-      },
-      {
-        "name": ["Artigiano Cambie Village"],
-        "lat": 49.2642301,
-        "lon": -123.1144945
-      },
-      {
-        "name": ["Artigiano Main Street"],
-        "lat": 49.249196,
-        "lon": -123.100808
-      },
-      {
-        "name": ["Artigiano Mount Pleasant"],
-        "lat": 49.26320279999999,
-        "lon": -123.1070007
-      },
-      {
-        "name": ["AVIK u0026 Gelato by James"],
-        "lat": 49.2631851,
-        "lon": -123.1194938
-      },
-      { "name": ["Boketto Tea Bar"], "lat": 49.2060881, "lon": -123.0320887 },
-      {
-        "name": ["Broy\u00e9 Caf\u00e9 u0026 Bakery\u00a0"],
-        "lat": 49.2263366,
-        "lon": -123.090528
-      },
-      { "name": ["The Bunny Cafe"], "lat": 49.2764474, "lon": -123.0699179 },
-      {
-        "name": ["Drunken Chocolatier"],
-        "lat": 49.2632561,
-        "lon": -123.1099462
-      },
-      {
-        "name": ["Elysian 7th u0026 Ontario"],
-        "lat": 49.2645303,
-        "lon": -123.1050928
-      },
-      { "name": ["Elysian Broadway"], "lat": 49.2630805, "lon": -123.1173002 },
-      {
-        "name": ["Eternal Abundance Organic Market u0026 Eatery"],
-        "lat": 49.2753793,
-        "lon": -123.0698052
-      },
-      { "name": ["The Federal Store"], "lat": 49.2619028, "lon": -123.1032786 },
-      { "name": ["Fife Bakery"], "lat": 49.2681578, "lon": -123.1032231 },
-      {
-        "name": ["Honolulu Coffee False Creek"],
-        "lat": 49.2694795,
-        "lon": -123.1063356
-      },
-      {
-        "name": [
-          "Kafka\u2019s Coffee Roasting and Bakery (Great Northern Way)"
-        ],
-        "lat": 49.2671575,
-        "lon": -123.0904717
-      },
-      {
-        "name": ["Lu0027Atelier Patisserie"],
-        "lat": 49.2626213,
-        "lon": -123.0913392
-      },
-      {
-        "name": ["La Saison de Patisserie"],
-        "lat": 49.25015090000001,
-        "lon": -123.0335478
-      },
-      {
-        "name": ["Mah Milk Bar"],
-        "lat": 49.27115999999999,
-        "lon": -123.0656081
-      },
-      {
-        "name": ["Melt Confectionary"],
-        "lat": 49.2407353,
-        "lon": -123.1017075
-      },
-      { "name": ["Mercato di Luigi"], "lat": 49.2595184, "lon": -123.0913208 },
-      {
-        "name": ["Modus Coffee Roasters"],
-        "lat": 49.2629228,
-        "lon": -123.1072617
-      },
-      {
-        "name": ["Purebread - 5th u0026 Ontario"],
-        "lat": 49.2665959,
-        "lon": -123.1045351
-      },
-      {
-        "name": ["Thierry Mount Pleasant"],
-        "lat": 49.2620964,
-        "lon": -123.099849
-      },
-      {
-        "name": ["To Live For Bakery u0026 Cafe"],
-        "lat": 49.2712341,
-        "lon": -123.0562702
-      },
-      {
-        "name": ["Trafiq Cafe u0026 Bakery"],
-        "lat": 49.24732879999999,
-        "lon": -123.1009045
-      },
-      { "name": ["Union Market"], "lat": 49.2772132, "lon": -123.086955 },
-      {
-        "name": ["Uprising Breads Bakery"],
-        "lat": 49.2768141,
-        "lon": -123.0707471
-      },
-      { "name": ["Whisk Matcha Cafe"], "lat": 49.2639032, "lon": -123.1000733 }
-    ]
-  },
-  {
-    "name": "South Granville / Kitsilano",
-    "locations": [
-      {
-        "name": [
-          "49th Parallel Caf\u00e9 u0026 Luckyu0027s Doughnuts - WEST 4TH"
-        ],
-        "lat": 49.268017,
-        "lon": -123.1547852
-      },
-      { "name": ["A la Mode"], "lat": 49.27234629999999, "lon": -123.1345671 },
-      { "name": ["Beaucoup Bakery"], "lat": 49.2664426, "lon": -123.140707 },
-      { "name": ["Elysian 5th Ave"], "lat": 49.2669854, "lon": -123.145159 },
-      {
-        "name": ["Fuf\u00fa Caf\u00e9"],
-        "lat": 49.2633471,
-        "lon": -123.1327295
-      },
-      {
-        "name": ["The GOOD Chocolatier"],
-        "lat": 49.2636231,
-        "lon": -123.1501243
-      },
-      { "name": ["Kasama Chocolate"], "lat": 49.2691904, "lon": -123.132316 },
-      { "name": ["Killer Ice Cream"], "lat": 49.2687351, "lon": -123.1848237 },
-      {
-        "name": ["Koko Monk Hot Chocolate Lounge"],
-        "lat": 49.2642421,
-        "lon": -123.1699947
-      },
-      {
-        "name": ["The Pie Hole - Vancouver"],
-        "lat": 49.2643885,
-        "lon": -123.1715941
-      },
-      {
-        "name": ["Purebread - West 4th"],
-        "lat": 49.2678696,
-        "lon": -123.1471701
-      },
-      {
-        "name": ["Purebread - West Broadway"],
-        "lat": 49.26426279999999,
-        "lon": -123.1701339
-      },
-      {
-        "name": ["Thomas Haas - Kitsilano"],
-        "lat": 49.26412750000001,
-        "lon": -123.1633433
-      },
-      {
-        "name": ["Uno Gelato Kitsilano"],
-        "lat": 49.2641719,
-        "lon": -123.1641669
-      },
-      {
-        "name": ["Viva Cafe u0026 Bakery"],
-        "lat": 49.272037,
-        "lon": -123.155166
-      }
-    ]
-  },
-  {
-    "name": "White Rock / Surrey",
-    "locations": [
-      { "name": ["Chez Christophe"], "lat": 49.0303023, "lon": -122.8009854 }
-    ]
-  },
-  {
-    "name": "Richmond",
-    "locations": [
-      {
-        "name": ["Artigiano YVR"],
-        "lat": 49.19775499999999,
-        "lon": -123.140803
-      }
-    ]
-  },
-  {
-    "name": "Sea to Sky",
-    "locations": [
-      {
-        "name": ["Artigiano Whistler"],
-        "lat": 50.1189927,
-        "lon": -122.9566264
-      },
-      {
-        "name": ["Purebread - Squamish"],
-        "lat": 49.7365793,
-        "lon": -123.1338266
-      },
-      {
-        "name": ["Purebread - Whistler"],
-        "lat": 50.11843549999999,
-        "lon": -122.9555372
-      }
-    ]
-  },
-  {
-    "name": "Tri-Cities, Langley and New Westminster",
-    "locations": [
-      { "name": ["Artigiano Langley"], "lat": 49.1553101, "lon": -122.6671903 },
-      {
-        "name": ["BAKu0027D Cookies - New West"],
-        "lat": 49.22484,
-        "lon": -122.89192
-      },
-      {
-        "name": ["BjornBar Bakery - Burquitlam"],
-        "lat": 49.262969,
-        "lon": -122.8887516
-      },
-      {
-        "name": ["C Market Coffee - Coquitlam"],
-        "lat": 49.2338336,
-        "lon": -122.8530572
-      },
-      {
-        "name": ["C Market Coffee - Pitt Meadows"],
-        "lat": 49.2090762,
-        "lon": -122.689352
-      },
-      {
-        "name": ["C Market Coffee - Port Coquitlam"],
-        "lat": 49.2518623,
-        "lon": -122.7367485
-      },
-      {
-        "name": ["Cannoli King - Port Coquitlam"],
-        "lat": 49.2559994,
-        "lon": -122.7395161
-      },
-      {
-        "name": ["Cassandra Cake Co - Port Coquitlam"],
-        "lat": 49.2617499,
-        "lon": -122.7834241
-      },
-      {
-        "name": ["Doughnut Love - Coquitlam"],
-        "lat": 49.26372660000001,
-        "lon": -122.8473823
-      },
-      {
-        "name": ["Little Pisces - Coquitlam/Burnaby\u00a0"],
-        "lat": 49.2438823,
-        "lon": -122.8932321
-      },
-      {
-        "name": ["Patina Brewing Co. Brew House u0026 BBQ - Port Coquitlam"],
-        "lat": 49.2613429,
-        "lon": -122.78363
-      },
-      {
-        "name": ["The Pie Hole - Langley"],
-        "lat": 49.10390470000001,
-        "lon": -122.6534397
-      }
-    ]
-  }
+	{
+		"name": "Westside / Kerrisdale",
+		"locations": [
+			{
+				"name": "Artigiano Kerrisdale",
+				"lat": 49.23447700000001,
+				"lon": -123.157321
+			},
+			{
+				"name": "Butter Baked Goods Ltd",
+				"lat": 49.24213959999999,
+				"lon": -123.1704061
+			},
+			{
+				"name": "Doughgirls Comfort Kitchen & Bakeshop",
+				"lat": 49.2546326,
+				"lon": -123.2358687
+			},
+			{
+				"name": "Faubourg Kerrisdale",
+				"lat": 49.23437680000001,
+				"lon": -123.1574157
+			},
+			{ "name": "Gem Chocolates", "lat": 49.2346862, "lon": -123.1529626 },
+			{
+				"name": "Honolulu Coffee Kerrisdale",
+				"lat": 49.2344032,
+				"lon": -123.1548587
+			},
+			{ "name": "NUTTEA", "lat": 49.26788649999999, "lon": -123.1492145 }
+		]
+	},
+	{
+		"name": "North Vancouver / West Vancouver",
+		"locations": [
+			{
+				"name": "49th Parallel Café & Lucky's Doughnuts - Lonsdale",
+				"lat": 49.3118285,
+				"lon": -123.0789768
+			},
+			{ "name": "Artigiano Edgemont", "lat": 49.337783, "lon": -123.101031 },
+			{
+				"name": "Artigiano Shipyards",
+				"lat": 49.3094613,
+				"lon": -123.079254
+			},
+			{
+				"name": "BjornBar Bakery - Edgemont Village",
+				"lat": 49.33685620000001,
+				"lon": -123.1015954
+			},
+			{
+				"name": "Casa Mia Cucina and Mercato",
+				"lat": 49.3311034,
+				"lon": -123.1713639
+			},
+			{
+				"name": "Modern Pantry (The) - West Van",
+				"lat": 49.3309372,
+				"lon": -123.1722515
+			},
+			{
+				"name": "Temper Chocolate & Pastry",
+				"lat": 49.33453069999999,
+				"lon": -123.1797811
+			},
+			{
+				"name": "Thierry Ambleside",
+				"lat": 49.32722579999999,
+				"lon": -123.152951
+			},
+			{
+				"name": "Thomas Haas - North Vancouver",
+				"lat": 49.314834,
+				"lon": -123.100492
+			},
+			{
+				"name": "Welcome Parlour Ice Cream",
+				"lat": 49.30983879999999,
+				"lon": -123.0786198
+			}
+		]
+	},
+	{
+		"name": "Downtown Vancouver",
+		"locations": [
+			{
+				"name": "49th Parallel Café & Lucky's Doughnuts - Thurlow",
+				"lat": 49.2860839,
+				"lon": -123.1229468
+			},
+			{
+				"name": "Aiyaohno Cafe",
+				"lat": 49.28117619999999,
+				"lon": -123.1046462
+			},
+			{ "name": "Analog Coffee", "lat": 49.2757429, "lon": -123.1211382 },
+			{
+				"name": "Artigiano Hornby",
+				"lat": 49.28315720000001,
+				"lon": -123.1214928
+			},
+			{
+				"name": "Artigiano Howe & Hastings",
+				"lat": 49.2859024,
+				"lon": -123.1152035
+			},
+			{ "name": "Artigiano Pender", "lat": 49.287703, "lon": -123.120432 },
+			{ "name": "Artigiano Robson", "lat": 49.2777895, "lon": -123.1139885 },
+			{
+				"name": "Artigiano Roundhouse",
+				"lat": 49.2732579,
+				"lon": -123.1207515
+			},
+			{
+				"name": "Beaucoup Bakery",
+				"lat": 49.28304139999999,
+				"lon": -123.115859
+			},
+			{
+				"name": "Bel Café",
+				"lat": 49.28336249999999,
+				"lon": -123.1190853
+			},
+			{
+				"name": "Bella Gelateria - English Bay",
+				"lat": 49.2865973,
+				"lon": -123.1410889
+			},
+			{
+				"name": "Bella Gelateria - Howe",
+				"lat": 49.28423799999999,
+				"lon": -123.1178226
+			},
+			{
+				"name": "Bella Gelateria - Robson",
+				"lat": 49.2872083,
+				"lon": -123.1285503
+			},
+			{ "name": "Bellaggio Cafe", "lat": 49.282985, "lon": -123.1215366 },
+			{ "name": "Boba Run", "lat": 49.2818569, "lon": -123.1075825 },
+			{
+				"name": "Broyé Cafe & Bakery",
+				"lat": 49.2854132,
+				"lon": -123.1172916
+			},
+			{ "name": "Cadeaux Bakery", "lat": 49.283093, "lon": -123.10047 },
+			{
+				"name": "Caffè Super Veloce",
+				"lat": 49.2883304,
+				"lon": -123.1176432
+			},
+			{
+				"name": "Charisma Social Club House",
+				"lat": 49.2799406,
+				"lon": -123.1087145
+			},
+			{ "name": "Elysian Downtown", "lat": 49.2798624, "lon": -123.127701 },
+			{ "name": "Faubourg Hornby", "lat": 49.2831054, "lon": -123.1214493 },
+			{ "name": "Faubourg Yaletown", "lat": 49.2745455, "lon": -123.122478 },
+			{
+				"name": "Giovane Caffè Georgia",
+				"lat": 49.280711,
+				"lon": -123.1156954
+			},
+			{
+				"name": "Giovane Caffè Pacific Rim",
+				"lat": 49.2881201,
+				"lon": -123.1166456
+			},
+			{ "name": "Guffo Café", "lat": 49.2863933, "lon": -123.1144449 },
+			{
+				"name": "Honolulu Coffee Nelson",
+				"lat": 49.2799401,
+				"lon": -123.1250129
+			},
+			{
+				"name": "Kafka's Coffee Roasting, Richards",
+				"lat": 49.2790026,
+				"lon": -123.1191277
+			},
+			{ "name": "Ladurée", "lat": 49.2853412, "lon": -123.1256195 },
+			{
+				"name": "Mercato di Luigi",
+				"lat": 49.27871209999999,
+				"lon": -123.0992481
+			},
+			{
+				"name": "Mink Chocolates, West Hastings",
+				"lat": 49.2866483,
+				"lon": -123.1153868
+			},
+			{ "name": "Motoretta Gelato", "lat": 49.2878512, "lon": -123.1163619 },
+			{
+				"name": "Nelson the Seagull",
+				"lat": 49.2821602,
+				"lon": -123.1045601
+			},
+			{
+				"name": "Paul Bakery, Café and Restaurant",
+				"lat": 49.28550740000001,
+				"lon": -123.1264747
+			},
+			{
+				"name": "PAUL Le Café",
+				"lat": 49.28143860000001,
+				"lon": -123.1182228
+			},
+			{
+				"name": "Peaked Pies Denman (Vancouver)",
+				"lat": 49.2897,
+				"lon": -123.1384318
+			},
+			{
+				"name": "Purebread - Gastown",
+				"lat": 49.2825121,
+				"lon": -123.1090815
+			},
+			{
+				"name": "Tartine Bread & Pies",
+				"lat": 49.2744814,
+				"lon": -123.1317314
+			},
+			{
+				"name": "Thierry Alberni",
+				"lat": 49.28488100000001,
+				"lon": -123.122643
+			},
+			{
+				"name": "Uno Gelato Vancouver Convention Centre",
+				"lat": 49.2890724,
+				"lon": -123.1145049
+			},
+			{ "name": "Vancouver Aquarium", "lat": 49.3004876, "lon": -123.1308774 }
+		]
+	},
+	{
+		"name": "Burnaby",
+		"locations": [
+			{ "name": "Artigiano Burnaby", "lat": 49.2812942, "lon": -123.0066771 },
+			{
+				"name": "Bella Gelateria - Brentwood",
+				"lat": 49.26861139999999,
+				"lon": -123.001547
+			},
+			{ "name": "Chez Christophe", "lat": 49.2811522, "lon": -122.9965661 },
+			{
+				"name": "Glenburn Soda Fountain & Confectionery",
+				"lat": 49.28090599999999,
+				"lon": -123.0146193
+			},
+			{
+				"name": "Mon Paris Patisserie",
+				"lat": 49.2259371,
+				"lon": -123.0054369
+			},
+			{
+				"name": "Peaked Pies Burnaby Heights",
+				"lat": 49.2808061,
+				"lon": -123.0135687
+			},
+			{
+				"name": "The Pie Hole - Burnaby",
+				"lat": 49.2198783,
+				"lon": -122.9285569
+			}
+		]
+	},
+	{
+		"name": "Mount Pleasant / East Vancouver",
+		"locations": [
+			{
+				"name": "49th Parallel Café & Lucky's Doughnuts - MAIN",
+				"lat": 49.2591539,
+				"lon": -123.1007927
+			},
+			{
+				"name": "Artigiano Cambie Village",
+				"lat": 49.2642301,
+				"lon": -123.1144945
+			},
+			{
+				"name": "Artigiano Main Street",
+				"lat": 49.249196,
+				"lon": -123.100808
+			},
+			{
+				"name": "Artigiano Mount Pleasant",
+				"lat": 49.26320279999999,
+				"lon": -123.1070007
+			},
+			{
+				"name": "AVIK & Gelato by James",
+				"lat": 49.2631851,
+				"lon": -123.1194938
+			},
+			{ "name": "Boketto Tea Bar", "lat": 49.2060881, "lon": -123.0320887 },
+			{
+				"name": "Broyé Café & Bakery",
+				"lat": 49.2263366,
+				"lon": -123.090528
+			},
+			{ "name": "The Bunny Cafe", "lat": 49.2764474, "lon": -123.0699179 },
+			{
+				"name": "Drunken Chocolatier",
+				"lat": 49.2632561,
+				"lon": -123.1099462
+			},
+			{
+				"name": "Elysian 7th & Ontario",
+				"lat": 49.2645303,
+				"lon": -123.1050928
+			},
+			{ "name": "Elysian Broadway", "lat": 49.2630805, "lon": -123.1173002 },
+			{
+				"name": "Eternal Abundance Organic Market & Eatery",
+				"lat": 49.2753793,
+				"lon": -123.0698052
+			},
+			{ "name": "The Federal Store", "lat": 49.2619028, "lon": -123.1032786 },
+			{ "name": "Fife Bakery", "lat": 49.2681578, "lon": -123.1032231 },
+			{
+				"name": "Honolulu Coffee False Creek",
+				"lat": 49.2694795,
+				"lon": -123.1063356
+			},
+			{
+				"name": "Kafka's Coffee Roasting and Bakery (Great Northern Way)",
+				"lat": 49.2671575,
+				"lon": -123.0904717
+			},
+			{
+				"name": "L'Atelier Patisserie",
+				"lat": 49.2626213,
+				"lon": -123.0913392
+			},
+			{
+				"name": "La Saison de Patisserie",
+				"lat": 49.25015090000001,
+				"lon": -123.0335478
+			},
+			{
+				"name": "Mah Milk Bar",
+				"lat": 49.27115999999999,
+				"lon": -123.0656081
+			},
+			{
+				"name": "Melt Confectionary",
+				"lat": 49.2407353,
+				"lon": -123.1017075
+			},
+			{ "name": "Mercato di Luigi", "lat": 49.2595184, "lon": -123.0913208 },
+			{
+				"name": "Modus Coffee Roasters",
+				"lat": 49.2629228,
+				"lon": -123.1072617
+			},
+			{
+				"name": "Purebread - 5th & Ontario",
+				"lat": 49.2665959,
+				"lon": -123.1045351
+			},
+			{
+				"name": "Thierry Mount Pleasant",
+				"lat": 49.2620964,
+				"lon": -123.099849
+			},
+			{
+				"name": "To Live For Bakery & Cafe",
+				"lat": 49.2712341,
+				"lon": -123.0562702
+			},
+			{
+				"name": "Trafiq Cafe & Bakery",
+				"lat": 49.24732879999999,
+				"lon": -123.1009045
+			},
+			{ "name": "Union Market", "lat": 49.2772132, "lon": -123.086955 },
+			{
+				"name": "Uprising Breads Bakery",
+				"lat": 49.2768141,
+				"lon": -123.0707471
+			},
+			{ "name": "Whisk Matcha Cafe", "lat": 49.2639032, "lon": -123.1000733 }
+		]
+	},
+	{
+		"name": "South Granville / Kitsilano",
+		"locations": [
+			{
+				"name": "49th Parallel Café & Lucky's Doughnuts - WEST 4TH",
+				"lat": 49.268017,
+				"lon": -123.1547852
+			},
+			{ "name": "A la Mode", "lat": 49.27234629999999, "lon": -123.1345671 },
+			{ "name": "Beaucoup Bakery", "lat": 49.2664426, "lon": -123.140707 },
+			{ "name": "Elysian 5th Ave", "lat": 49.2669854, "lon": -123.145159 },
+			{
+				"name": "Fufú Café",
+				"lat": 49.2633471,
+				"lon": -123.1327295
+			},
+			{
+				"name": "The GOOD Chocolatier",
+				"lat": 49.2636231,
+				"lon": -123.1501243
+			},
+			{ "name": "Kasama Chocolate", "lat": 49.2691904, "lon": -123.132316 },
+			{ "name": "Killer Ice Cream", "lat": 49.2687351, "lon": -123.1848237 },
+			{
+				"name": "Koko Monk Hot Chocolate Lounge",
+				"lat": 49.2642421,
+				"lon": -123.1699947
+			},
+			{
+				"name": "The Pie Hole - Vancouver",
+				"lat": 49.2643885,
+				"lon": -123.1715941
+			},
+			{
+				"name": "Purebread - West 4th",
+				"lat": 49.2678696,
+				"lon": -123.1471701
+			},
+			{
+				"name": "Purebread - West Broadway",
+				"lat": 49.26426279999999,
+				"lon": -123.1701339
+			},
+			{
+				"name": "Thomas Haas - Kitsilano",
+				"lat": 49.26412750000001,
+				"lon": -123.1633433
+			},
+			{
+				"name": "Uno Gelato Kitsilano",
+				"lat": 49.2641719,
+				"lon": -123.1641669
+			},
+			{
+				"name": "Viva Cafe & Bakery",
+				"lat": 49.272037,
+				"lon": -123.155166
+			}
+		]
+	},
+	{
+		"name": "White Rock / Surrey",
+		"locations": [
+			{ "name": "Chez Christophe", "lat": 49.0303023, "lon": -122.8009854 }
+		]
+	},
+	{
+		"name": "Richmond",
+		"locations": [
+			{
+				"name": "Artigiano YVR",
+				"lat": 49.19775499999999,
+				"lon": -123.140803
+			}
+		]
+	},
+	{
+		"name": "Sea to Sky",
+		"locations": [
+			{
+				"name": "Artigiano Whistler",
+				"lat": 50.1189927,
+				"lon": -122.9566264
+			},
+			{
+				"name": "Purebread - Squamish",
+				"lat": 49.7365793,
+				"lon": -123.1338266
+			},
+			{
+				"name": "Purebread - Whistler",
+				"lat": 50.11843549999999,
+				"lon": -122.9555372
+			}
+		]
+	},
+	{
+		"name": "Tri-Cities, Langley and New Westminster",
+		"locations": [
+			{ "name": "Artigiano Langley", "lat": 49.1553101, "lon": -122.6671903 },
+			{
+				"name": "BAK'D Cookies - New West",
+				"lat": 49.22484,
+				"lon": -122.89192
+			},
+			{
+				"name": "BjornBar Bakery - Burquitlam",
+				"lat": 49.262969,
+				"lon": -122.8887516
+			},
+			{
+				"name": "C Market Coffee - Coquitlam",
+				"lat": 49.2338336,
+				"lon": -122.8530572
+			},
+			{
+				"name": "C Market Coffee - Pitt Meadows",
+				"lat": 49.2090762,
+				"lon": -122.689352
+			},
+			{
+				"name": "C Market Coffee - Port Coquitlam",
+				"lat": 49.2518623,
+				"lon": -122.7367485
+			},
+			{
+				"name": "Cannoli King - Port Coquitlam",
+				"lat": 49.2559994,
+				"lon": -122.7395161
+			},
+			{
+				"name": "Cassandra Cake Co - Port Coquitlam",
+				"lat": 49.2617499,
+				"lon": -122.7834241
+			},
+			{
+				"name": "Doughnut Love - Coquitlam",
+				"lat": 49.26372660000001,
+				"lon": -122.8473823
+			},
+			{
+				"name": "Little Pisces - Coquitlam/Burnaby",
+				"lat": 49.2438823,
+				"lon": -122.8932321
+			},
+			{
+				"name": "Patina Brewing Co. Brew House & BBQ - Port Coquitlam",
+				"lat": 49.2613429,
+				"lon": -122.78363
+			},
+			{
+				"name": "The Pie Hole - Langley",
+				"lat": 49.10390470000001,
+				"lon": -122.6534397
+			}
+		]
+	}
 ]
