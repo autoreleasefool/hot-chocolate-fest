@@ -52,7 +52,7 @@ final class FlavoursRepository: ObservableObject {
 	private nonisolated func retrieveTags(fromText text: String) -> Set<Flavour.Tag> {
 		var tags: Set<Flavour.Tag> = []
 
-		if text.contains(/contains (nuts|tree|peanuts)|pistachio|hazelnut|peanut|nutella|walnut|almond|cashew/.ignoresCase()) {
+		if text.contains(/contains (nuts|tree|peanuts)|pistachio|hazelnut|peanut|nutella|walnut|cashew/.ignoresCase()) {
 			tags.insert(.nuts)
 		}
 

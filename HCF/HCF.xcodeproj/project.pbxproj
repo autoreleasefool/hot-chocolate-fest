@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CA26ACE72D4B1F8800A247C5 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = CA26ACE62D4B1F8800A247C5 /* Tagged */; };
 		CAE910382D4A034D005C104E /* Sharing in Frameworks */ = {isa = PBXBuildFile; productRef = CAE910372D4A034D005C104E /* Sharing */; };
+		CAE910902D4B42B8005C104E /* Flow in Frameworks */ = {isa = PBXBuildFile; productRef = CAE9108F2D4B42B8005C104E /* Flow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 			files = (
 				CA26ACE72D4B1F8800A247C5 /* Tagged in Frameworks */,
 				CAE910382D4A034D005C104E /* Sharing in Frameworks */,
+				CAE910902D4B42B8005C104E /* Flow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +76,7 @@
 			packageProductDependencies = (
 				CAE910372D4A034D005C104E /* Sharing */,
 				CA26ACE62D4B1F8800A247C5 /* Tagged */,
+				CAE9108F2D4B42B8005C104E /* Flow */,
 			);
 			productName = HCF;
 			productReference = CAE90FBC2D485005005C104E /* HCF.app */;
@@ -106,6 +109,7 @@
 			packageReferences = (
 				CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */,
 				CA26ACE52D4B1F8800A247C5 /* XCRemoteSwiftPackageReference "swift-tagged" */,
+				CAE9108E2D4B42B8005C104E /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CAE90FBD2D485005005C104E /* Products */;
@@ -369,6 +373,14 @@
 				minimumVersion = 2.1.2;
 			};
 		};
+		CAE9108E2D4B42B8005C104E /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tevelee/SwiftUI-Flow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -381,6 +393,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */;
 			productName = Sharing;
+		};
+		CAE9108F2D4B42B8005C104E /* Flow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE9108E2D4B42B8005C104E /* XCRemoteSwiftPackageReference "SwiftUI-Flow" */;
+			productName = Flow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

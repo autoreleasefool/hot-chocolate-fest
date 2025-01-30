@@ -24,13 +24,26 @@ struct Flavour: Identifiable, Hashable {
 }
 
 extension Flavour {
-	enum Tag: Hashable {
+	enum Tag: Hashable, CaseIterable, Identifiable {
 		case glutenFree
 		case nuts
 		case coconut
 		case sesame
 		case alcohol
 		case dairyFreeOrVegan
+
+		var id: Self { self }
+
+		var title: String {
+			switch self {
+			case .glutenFree: "Gluten Free"
+			case .nuts: "Contains Nuts"
+			case .coconut: "Contains Coconut"
+			case .sesame: "Contains Sesame"
+			case .alcohol: "Contains Alcohol"
+			case .dairyFreeOrVegan: "Dairy Free / Vegan"
+			}
+		}
 	}
 }
 

@@ -1,6 +1,8 @@
+import Flow
 import Sharing
 import SwiftData
 import SwiftUI
+
 
 struct FlavoursListView: View {
 	@EnvironmentObject private var flavoursRepository: FlavoursRepository
@@ -10,9 +12,21 @@ struct FlavoursListView: View {
 
 	var body: some View {
 		List {
-			ForEach(viewModel.flavours) { flavour in
-				FlavourListItemRow(flavour: flavour) { action in
-					await viewModel.handleListRowAction(action)
+			Section {
+				HFlow {
+					ForEach(Flavour.Tag.allCases) { tag in
+						badge(for: tag, isEnabled: viewModel.isTagEnabled(tag))
+					}
+				}
+			}
+			.listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
+			.listRowBackground(Color.clear)
+
+			Section {
+				ForEach(viewModel.flavours) { flavour in
+					FlavourListItemRow(flavour: flavour) { action in
+						await viewModel.handleListRowAction(action)
+					}
 				}
 			}
 		}
@@ -23,26 +37,14 @@ struct FlavoursListView: View {
 		.task(id: query) {
 			do {
 				try await Task.sleep(for: .milliseconds(300))
-				viewModel.query = query
+				await viewModel.handleListAction(.didChangeQuery(query))
 			} catch {}
 		}
 		.navigationTitle("Flavours")
 		.searchable(text: $query)
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
-				Menu(viewModel.filter.menuTitle) {
-					ForEach(FlavoursListViewModel.Filter.allCases) { filter in
-						Button {
-							viewModel.filter = filter
-						} label: {
-							if viewModel.filter == filter {
-								Label(filter.title, systemImage: "checkmark")
-							} else {
-								Text(filter.title)
-							}
-						}
-					}
-				}
+				filterMenu
 			}
 		}
 		.navigationDestination(for: Flavour.ID.self) { flavourId in
@@ -51,6 +53,85 @@ struct FlavoursListView: View {
 			} else {
 				EmptyView()
 			}
+		}
+	}
+
+	@ViewBuilder
+	private var filterMenu: some View {
+		Menu(viewModel.filter.menuTitle) {
+			ForEach(FlavoursListViewModel.Filter.allCases) { filter in
+				Button {
+					Task {
+						await viewModel.handleListAction(.didChangeFilter(filter))
+					}
+				} label: {
+					if viewModel.filter == filter {
+						Label(filter.title, systemImage: "checkmark")
+					} else {
+						Text(filter.title)
+					}
+				}
+			}
+		}
+	}
+
+	@ViewBuilder
+	private func badge(for tag: Flavour.Tag, isEnabled: Bool) -> some View {
+		Button {
+			Task {
+				await viewModel.handleListAction(.didToggleTag(tag))
+			}
+		} label: {
+			Text(tag.title)
+				.font(.subheadline)
+				.padding(6)
+				.foregroundStyle(tag.foreground(isEnabled: isEnabled))
+				.background {
+					Capsule()
+						.fill(tag.background(isEnabled: isEnabled))
+						.stroke((tag.foreground(isEnabled: isEnabled)))
+				}
+		}
+		.buttonStyle(.plain)
+	}
+}
+
+extension FlavoursListView {
+	enum Action {
+		case didToggleTag(Flavour.Tag)
+		case didChangeQuery(String)
+		case didChangeFilter(FlavoursListViewModel.Filter)
+	}
+}
+
+extension Flavour.Tag {
+	func foreground(isEnabled: Bool) -> Color {
+		if isEnabled {
+			switch self {
+			case .alcohol: .red
+			case .coconut: .mint
+			case .dairyFreeOrVegan: .green
+			case .glutenFree: .orange
+			case .nuts: .brown
+			case .sesame: .yellow
+			}
+		} else {
+			.gray
+		}
+	}
+
+	func background(isEnabled: Bool) -> some ShapeStyle {
+		if isEnabled {
+			switch self {
+			case .alcohol: Color.red.tertiary
+			case .coconut: Color.gray.tertiary
+			case .dairyFreeOrVegan: Color.green.tertiary
+			case .glutenFree: Color.orange.tertiary
+			case .nuts: Color.brown.tertiary
+			case .sesame: Color.yellow.tertiary
+			}
+		} else {
+			Color.gray.tertiary
 		}
 	}
 }

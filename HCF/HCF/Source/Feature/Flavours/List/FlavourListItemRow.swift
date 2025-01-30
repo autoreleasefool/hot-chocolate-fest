@@ -7,11 +7,21 @@ struct FlavourListItemRow: View {
 
 	var body: some View {
 		NavigationLink(value: flavour.id) {
-			HStack {
-				Image(systemName: "star")
-					.symbolVariant(flavour.isFavourite ? .fill : .none)
+			HStack(spacing: 0) {
+				HStack {
+					Image(systemName: "star")
+						.symbolVariant(flavour.isFavourite ? .fill : .none)
 
-				Text(flavour.name)
+					Text(flavour.name)
+				}
+
+				Spacer(minLength: 8)
+
+				if flavour.isTasted || flavour.isFavourite {
+					iconBadge(systemName: "cup.and.saucer.fill")
+				} else if flavour.isWishlist {
+					iconBadge(systemName: "heart.fill")
+				}
 			}
 		}
 		.swipeActions(edge: .trailing) {
@@ -54,6 +64,14 @@ struct FlavourListItemRow: View {
 			}
 			.tint(.red)
 		}
+	}
+
+	private func iconBadge(systemName: String) -> some View {
+		Image(systemName: systemName)
+			.resizable()
+			.scaledToFit()
+			.frame(width: 12, height: 12)
+			.foregroundStyle(.secondary)
 	}
 }
 

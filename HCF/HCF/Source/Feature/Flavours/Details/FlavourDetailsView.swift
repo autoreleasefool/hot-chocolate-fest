@@ -27,7 +27,9 @@ struct FlavourDetailsView: View {
 
 	var body: some View {
 		List {
-			Text(flavour.description.first!)
+			ForEach(flavour.description, id: \.self) { description in
+				Text(description)
+			}
 		}
 		.navigationTitle(flavour.name)
 		.toolbar {

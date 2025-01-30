@@ -18,19 +18,11 @@ final class FlavoursListViewModel {
 	@Shared(.fileStorage(.wishlist))
 	private var wishlist: Set<Flavour.ID> = []
 
-	var query: String = "" {
-		didSet {
-			Task { await refreshFlavours() }
-		}
-	}
+	private(set) var query: String = ""
+	private(set) var filter: Filter = .all
+	private(set) var tags: Set<Flavour.Tag> = []
 
-	var filter: Filter = .all {
-		didSet {
-			Task { await refreshFlavours() }
-		}
-	}
-
-	var flavours: [FlavourListItem] = []
+	private(set) var flavours: [FlavourListItem] = []
 
 	// Dependencies
 	private var repository: FlavoursRepository!
@@ -45,8 +37,12 @@ final class FlavoursListViewModel {
 		await refreshFlavours()
 	}
 
-	func refresh() async {
-		await refreshFlavours()
+	func handleListAction(_ action: FlavoursListView.Action) async {
+		switch action {
+		case let .didToggleTag(tag): await toggleTag(tag)
+		case let .didChangeQuery(query): await changeQuery(query)
+		case let .didChangeFilter(filter): await changeFilter(filter)
+		}
 	}
 
 	func handleListRowAction(_ action: FlavourListItemRow.Action) async {
@@ -57,27 +53,46 @@ final class FlavoursListViewModel {
 		}
 	}
 
+	func isTagEnabled(_ tag: Flavour.Tag) -> Bool {
+		tags.contains(tag)
+	}
+
 	@MainActor
 	func getFlavour(id: Flavour.ID) -> Flavour? {
 		repository.fetch(id: id)
 	}
 
-	func toggleFavourite(_ id: Flavour.ID) async {
+	// MARK: Private
+
+	private func changeQuery(_ query: String) async {
+		self.query = query
+		await refreshFlavours()
+	}
+
+	private func changeFilter(_ filter: Filter) async {
+		self.filter = filter
+		await refreshFlavours()
+	}
+
+	private func toggleFavourite(_ id: Flavour.ID) async {
 		$favourites.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
-	func toggleTaste(_ id: Flavour.ID) async {
+	private func toggleTaste(_ id: Flavour.ID) async {
 		$tasted.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
-	func toggleWishlist(_ id: Flavour.ID) async {
+	private func toggleWishlist(_ id: Flavour.ID) async {
 		$wishlist.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
-	// MARK: Private
+	private func toggleTag(_ tag: Flavour.Tag) async {
+		tags.toggle(tag)
+		await refreshFlavours()
+	}
 
 	private func refreshFlavours() async {
 		do {
@@ -87,6 +102,7 @@ final class FlavoursListViewModel {
 				.filter { filter != .favourites || isFavourite($0) }
 				.filter { filter != .tasted || isTasted($0) || isFavourite($0) }
 				.filter { filter != .wishlist || isWishlist($0) }
+				.filter { tags.isEmpty || !tags.isDisjoint(with: $0.tags) }
 				.map {
 					FlavourListItem(
 						id: $0.id,
