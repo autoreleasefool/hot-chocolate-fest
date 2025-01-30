@@ -2,6 +2,9 @@ import SwiftUI
 
 @main
 struct HCFApp: App {
+
+	@StateObject private var flavoursRepository = FlavoursRepository()
+
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
@@ -9,6 +12,7 @@ struct HCFApp: App {
 					FavouriteFlavour.self,
 					TastedFlavour.self
 				])
+				.environmentObject(flavoursRepository)
 		}
 	}
 }

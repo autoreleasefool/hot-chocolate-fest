@@ -6,3 +6,9 @@ enum Constants {
 		static let endDate = Date(timeIntervalSince1970: 1739606400)
 	}
 }
+
+extension URL {
+	static let favourites: URL = .documentsDirectory.appendingPathComponent("favourites")
+	static let tasted: URL = .documentsDirectory.appendingPathComponent("tasted")
+	static let wishlist: URL = .documentsDirectory.appendingPathComponent("wishlist")
+}

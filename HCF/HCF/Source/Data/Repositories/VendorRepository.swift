@@ -10,8 +10,9 @@ actor VendorRepository {
 			return filter(vendors, with: query)
 		}
 
-		let regionResources = try await ResourceLoader.shared.loadRegions()
-		let flavourResources = try await ResourceLoader.shared.loadFlavours()
+		let resourceLoader = ResourceLoader()
+		let regionResources = try await resourceLoader.loadRegions()
+		let flavourResources = try await resourceLoader.loadFlavours()
 
 		let vendors = regionResources.flatMap { region in
 			region.locations.map {

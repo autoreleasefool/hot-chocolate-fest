@@ -6,8 +6,10 @@ struct FlavourView: View {
 
 	let isFavourite: Bool
 	let isTasted: Bool
+	let isWishlist: Bool
 	let onToggleFavourite: () async -> Void
 	let onToggleTaste: () async -> Void
+	let onToggleWishlist: () async -> Void
 
 	var body: some View {
 		NavigationLink(value: flavour) {
@@ -30,6 +32,7 @@ struct FlavourView: View {
 					Label("Favourite", systemImage: "star")
 				}
 			}
+			.tint(.yellow)
 
 			Button {
 				Task {
@@ -42,6 +45,20 @@ struct FlavourView: View {
 					Label("Taste", systemImage: "cup.and.heat.waves")
 				}
 			}
+			.tint(.blue)
+
+			Button {
+				Task {
+					await onToggleWishlist()
+				}
+			} label: {
+				if isWishlist {
+					Label("Remove", systemImage: "heart.slash")
+				} else {
+					Label("Taste", systemImage: "heart")
+				}
+			}
+			.tint(.red)
 		}
 	}
 }

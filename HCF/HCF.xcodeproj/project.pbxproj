@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CAE910382D4A034D005C104E /* Sharing in Frameworks */ = {isa = PBXBuildFile; productRef = CAE910372D4A034D005C104E /* Sharing */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CAE90FBC2D485005005C104E /* HCF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HCF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE910382D4A034D005C104E /* Sharing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = HCF;
 			packageProductDependencies = (
+				CAE910372D4A034D005C104E /* Sharing */,
 			);
 			productName = HCF;
 			productReference = CAE90FBC2D485005005C104E /* HCF.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = CAE90FB32D485005005C104E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CAE90FBD2D485005005C104E /* Products */;
 			projectDirPath = "";
@@ -338,6 +347,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-sharing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CAE910372D4A034D005C104E /* Sharing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */;
+			productName = Sharing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CAE90FB42D485005005C104E /* Project object */;
 }
