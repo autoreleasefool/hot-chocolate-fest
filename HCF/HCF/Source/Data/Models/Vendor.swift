@@ -1,21 +1,16 @@
 import CoreLocation
 import Foundation
+import Tagged
 
 struct Vendor: Identifiable, Hashable {
+	typealias ID = Tagged<Vendor, String>
+
 	let name: String
 	let location: Location
-	let flavours: [Flavour]
+	let url: URL
+	let flavours: [Flavour.ID]
 
-	var id: String { name }
-}
-
-extension Vendor {
-	struct Flavour: Identifiable, Hashable {
-		let id: Int
-		let name: String
-		let description: String
-		let availability: [DateInterval]
-	}
+	var id: ID { .init(name) }
 }
 
 extension Vendor {

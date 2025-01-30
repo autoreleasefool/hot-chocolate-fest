@@ -34,17 +34,49 @@ final class FlavoursRepository: ObservableObject {
 
 		return flavours.map {
 			Flavour(
-				id: Int($0.name.prefix(4).dropFirst())!,
+				id: .init(Int($0.name.prefix(4).dropFirst())!),
 				name: $0.name.dropFirst(6).trimmingCharacters(in: .whitespaces),
-				description: String($0.description.drop(while: { !$0.isNewline }).dropFirst()),
-				availability: retrieveAvailability(fromText: $0.description),
-				vendor: Flavour.Vendor(
-					name: $0.vendor_name,
-					location: .init(latitude: 0.0, longitude: 0.0),
-					website: $0.vendor_url
-				)
+				description: retrieveDescription(fromText: $0.description),
+				dates: retrieveAvailability(fromText: $0.description),
+				tags: retrieveTags(fromText: $0.description),
+				vendor: .init("")
 			)
 		}
+	}
+
+	private nonisolated func retrieveDescription(fromText text: String) -> [String] {
+		String(text.drop(while: { !$0.isNewline }).dropFirst())
+			.components(separatedBy: .newlines)
+	}
+
+	private nonisolated func retrieveTags(fromText text: String) -> Set<Flavour.Tag> {
+		var tags: Set<Flavour.Tag> = []
+
+		if text.contains(/contains (nuts|tree|peanuts)|pistachio|hazelnut|peanut|nutella|walnut|almond|cashew/.ignoresCase()) {
+			tags.insert(.nuts)
+		}
+
+		if text.contains(/coconut/.ignoresCase()) {
+			tags.insert(.coconut)
+		}
+
+		if text.contains(/sesame|tahini/.ignoresCase()) {
+			tags.insert(.sesame)
+		}
+
+		if text.contains(/alcohol/.ignoresCase()) {
+			tags.insert(.alcohol)
+		}
+
+		if text.contains(/gluten/.ignoresCase()) {
+			tags.insert(.glutenFree)
+		}
+
+		if text.contains(/vegan|dairy[- ]free/.ignoresCase()) {
+			tags.insert(.dairyFreeOrVegan)
+		}
+
+		return tags
 	}
 
 	private nonisolated func retrieveAvailability(fromText text: String) -> [DateInterval] {

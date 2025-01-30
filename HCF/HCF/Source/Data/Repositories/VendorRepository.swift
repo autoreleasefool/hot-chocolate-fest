@@ -19,6 +19,7 @@ actor VendorRepository {
 				Vendor(
 					name: $0.name,
 					location: .init(latitude: $0.lat, longitude: $0.lon),
+					url: URL(string: "")!,
 					flavours: []
 				)
 			}
@@ -33,9 +34,6 @@ actor VendorRepository {
 
 		return vendors.filter { vendor in
 			vendor.name.localizedCaseInsensitiveContains(query)
-			|| vendor.flavours.contains { flavour in
-				flavour.name.localizedCaseInsensitiveContains(query)
-			}
 		}
 	}
 }

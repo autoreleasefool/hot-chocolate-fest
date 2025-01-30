@@ -11,15 +11,9 @@ struct FlavoursListView: View {
 	var body: some View {
 		List {
 			ForEach(viewModel.flavours) { flavour in
-				FlavourView(
-					flavour: flavoursRepository.fetch(id: flavour.id)!,
-					isFavourite: flavour.isFavourite,
-					isTasted: flavour.isTasted,
-					isWishlist: flavour.isWishlist,
-					onToggleFavourite: { await viewModel.toggleFavourite(flavour) },
-					onToggleTaste: { await viewModel.toggleTaste(flavour) },
-					onToggleWishlist: { await viewModel.toggleWishlist(flavour) }
-				)
+				FlavourListItemRow(flavour: flavour) { action in
+					await viewModel.handleListRowAction(action)
+				}
 			}
 		}
 		.task {
@@ -36,7 +30,7 @@ struct FlavoursListView: View {
 		.searchable(text: $query)
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
-				Menu("Filter") {
+				Menu(viewModel.filter.menuTitle) {
 					ForEach(FlavoursListViewModel.Filter.allCases) { filter in
 						Button {
 							viewModel.filter = filter
@@ -51,8 +45,12 @@ struct FlavoursListView: View {
 				}
 			}
 		}
-		.navigationDestination(for: Flavour.self) { flavour in
-			FlavourDetailsView(flavour: flavour)
+		.navigationDestination(for: Flavour.ID.self) { flavourId in
+			if let flavour = viewModel.getFlavour(id: flavourId) {
+				FlavourDetailsView(flavour: flavour)
+			} else {
+				EmptyView()
+			}
 		}
 	}
 }
@@ -60,10 +58,19 @@ struct FlavoursListView: View {
 extension FlavoursListViewModel.Filter {
 	var title: String {
 		switch self {
-		case .all: return "All"
-		case .favourites: return "Favourites"
-		case .tasted: return "Tasted"
-		case .wishlist: return "Wishlist"
+		case .all: "All"
+		case .favourites: "Favourites"
+		case .tasted: "Tasted"
+		case .wishlist: "Wishlist"
+		}
+	}
+
+	var menuTitle: String {
+		switch self {
+		case .all: "Filter"
+		case .favourites: "Favourites"
+		case .tasted: "Tasted"
+		case .wishlist: "Wishlist"
 		}
 	}
 }

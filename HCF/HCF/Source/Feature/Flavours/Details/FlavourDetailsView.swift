@@ -16,7 +16,7 @@ struct FlavourDetailsView: View {
 	init(flavour: Flavour) {
 		self.flavour = flavour
 
-		let id = flavour.id
+		let id = flavour.id.rawValue
 		_favourites = Query(filter: #Predicate<FavouriteFlavour> { f in
 			f.flavourId == id
 		})
@@ -27,15 +27,13 @@ struct FlavourDetailsView: View {
 
 	var body: some View {
 		List {
-			Text(flavour.description)
+			Text(flavour.description.first!)
 		}
 		.navigationTitle(flavour.name)
 		.toolbar {
 			ToolbarItem {
 				Button {
-					Task {
-						await toggleFavourite()
-					}
+					// TODO: favourite
 				} label: {
 					Image(systemName: "star")
 						.symbolVariant(isFavourite ? .fill : .none)
@@ -44,36 +42,12 @@ struct FlavourDetailsView: View {
 
 			ToolbarItem {
 				Button {
-					Task {
-						await toggleTasted()
-					}
+					// TODO: tasted
 				} label: {
 					Image(systemName: "cup.and.saucer")
 						.symbolVariant(hasTasted ? .fill : .none)
 				}
 			}
 		}
-	}
-
-	private func toggleFavourite() async {
-		if let favourite {
-			context.delete(favourite)
-		} else {
-			let favourite = FavouriteFlavour(flavourId: flavour.id)
-			context.insert(favourite)
-		}
-
-		try? context.save()
-	}
-
-	private func toggleTasted() async {
-		if let tasted {
-			context.delete(tasted)
-		} else {
-			let tasted = TastedFlavour(flavourId: flavour.id)
-			context.insert(tasted)
-		}
-
-		try? context.save()
 	}
 }

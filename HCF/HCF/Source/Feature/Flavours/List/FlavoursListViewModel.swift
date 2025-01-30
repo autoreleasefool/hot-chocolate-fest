@@ -49,18 +49,31 @@ final class FlavoursListViewModel {
 		await refreshFlavours()
 	}
 
-	func toggleFavourite(_ flavour: FlavourListItem) async {
-		$favourites.withLock { $0.toggle(flavour.id) }
+	func handleListRowAction(_ action: FlavourListItemRow.Action) async {
+		switch action {
+		case let .didToggleFavourite(id): await toggleFavourite(id)
+		case let .didToggleTasted(id): await toggleTaste(id)
+		case let .didToggleWishlist(id): await toggleWishlist(id)
+		}
+	}
+
+	@MainActor
+	func getFlavour(id: Flavour.ID) -> Flavour? {
+		repository.fetch(id: id)
+	}
+
+	func toggleFavourite(_ id: Flavour.ID) async {
+		$favourites.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
-	func toggleTaste(_ flavour: FlavourListItem) async {
-		$tasted.withLock { $0.toggle(flavour.id) }
+	func toggleTaste(_ id: Flavour.ID) async {
+		$tasted.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
-	func toggleWishlist(_ flavour: FlavourListItem) async {
-		$wishlist.withLock { $0.toggle(flavour.id) }
+	func toggleWishlist(_ id: Flavour.ID) async {
+		$wishlist.withLock { $0.toggle(id) }
 		await refreshFlavours()
 	}
 
@@ -80,7 +93,8 @@ final class FlavoursListViewModel {
 						name: $0.name,
 						isFavourite: isFavourite($0),
 						isTasted: isTasted($0),
-						isWishlist: isWishlist($0)
+						isWishlist: isWishlist($0),
+						tags: $0.tags
 					)
 				}
 		} catch {
@@ -105,11 +119,12 @@ final class FlavoursListViewModel {
 
 extension FlavoursListViewModel {
 	struct FlavourListItem: Identifiable {
-		let id: Int
+		let id: Flavour.ID
 		let name: String
 		let isFavourite: Bool
 		let isTasted: Bool
 		let isWishlist: Bool
+		let tags: Set<Flavour.Tag>
 	}
 }
 

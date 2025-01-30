@@ -1,32 +1,26 @@
 import SwiftUI
 import SwiftData
 
-struct FlavourView: View {
-	let flavour: Flavour
-
-	let isFavourite: Bool
-	let isTasted: Bool
-	let isWishlist: Bool
-	let onToggleFavourite: () async -> Void
-	let onToggleTaste: () async -> Void
-	let onToggleWishlist: () async -> Void
+struct FlavourListItemRow: View {
+	let flavour: FlavoursListViewModel.FlavourListItem
+	let onAction: (Action) async -> Void
 
 	var body: some View {
-		NavigationLink(value: flavour) {
+		NavigationLink(value: flavour.id) {
 			HStack {
 				Image(systemName: "star")
-					.symbolVariant(isFavourite ? .fill : .none)
-				
+					.symbolVariant(flavour.isFavourite ? .fill : .none)
+
 				Text(flavour.name)
 			}
 		}
 		.swipeActions(edge: .trailing) {
 			Button {
 				Task {
-					await onToggleFavourite()
+					await onAction(.didToggleFavourite(flavour.id))
 				}
 			} label: {
-				if isFavourite {
+				if flavour.isFavourite {
 					Label("Unfavourite", systemImage: "star.slash")
 				} else {
 					Label("Favourite", systemImage: "star")
@@ -36,10 +30,10 @@ struct FlavourView: View {
 
 			Button {
 				Task {
-					await onToggleTaste()
+					await onAction(.didToggleTasted(flavour.id))
 				}
 			} label: {
-				if isTasted {
+				if flavour.isTasted {
 					Label("Remove", systemImage: "cup.and.saucer")
 				} else {
 					Label("Taste", systemImage: "cup.and.heat.waves")
@@ -49,10 +43,10 @@ struct FlavourView: View {
 
 			Button {
 				Task {
-					await onToggleWishlist()
+					await onAction(.didToggleWishlist(flavour.id))
 				}
 			} label: {
-				if isWishlist {
+				if flavour.isWishlist {
 					Label("Remove", systemImage: "heart.slash")
 				} else {
 					Label("Taste", systemImage: "heart")
@@ -60,5 +54,13 @@ struct FlavourView: View {
 			}
 			.tint(.red)
 		}
+	}
+}
+
+extension FlavourListItemRow {
+	enum Action {
+		case didToggleFavourite(Flavour.ID)
+		case didToggleTasted(Flavour.ID)
+		case didToggleWishlist(Flavour.ID)
 	}
 }

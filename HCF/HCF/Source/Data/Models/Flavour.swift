@@ -1,29 +1,43 @@
 import CoreLocation
 import Foundation
+import Tagged
 
 struct Flavour: Identifiable, Hashable {
-	let id: Int
+	typealias ID = Tagged<Flavour, Int>
+	
+	let id: ID
 	let name: String
-	let description: String
-	let availability: [DateInterval]
-	let vendor: Vendor
-}
+	let description: [String]
+	let dates: [DateInterval]
+	let tags: Set<Tag>
+	let vendor: Vendor.ID
 
-extension Flavour {
-	struct Vendor: Hashable {
-		let name: String
-		let location: Location
-		let website: URL
+	func availability(for date: Date = .now) -> Availability {
+		if dates.contains(where: { $0.contains(date) }) {
+			.availableNow
+		} else if dates.contains(where: { date < $0.start }) {
+			.availableSoon
+		} else {
+			.expired
+		}
 	}
 }
 
-extension Flavour.Vendor {
-	struct Location: Hashable {
-		let latitude: Double
-		let longitude: Double
+extension Flavour {
+	enum Tag: Hashable {
+		case glutenFree
+		case nuts
+		case coconut
+		case sesame
+		case alcohol
+		case dairyFreeOrVegan
+	}
+}
 
-		var coordinate: CLLocationCoordinate2D {
-			CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-		}
+extension Flavour {
+	enum Availability: Hashable {
+		case availableNow
+		case availableSoon
+		case expired
 	}
 }

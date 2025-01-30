@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA26ACE72D4B1F8800A247C5 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = CA26ACE62D4B1F8800A247C5 /* Tagged */; };
 		CAE910382D4A034D005C104E /* Sharing in Frameworks */ = {isa = PBXBuildFile; productRef = CAE910372D4A034D005C104E /* Sharing */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA26ACE72D4B1F8800A247C5 /* Tagged in Frameworks */,
 				CAE910382D4A034D005C104E /* Sharing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +73,7 @@
 			name = HCF;
 			packageProductDependencies = (
 				CAE910372D4A034D005C104E /* Sharing */,
+				CA26ACE62D4B1F8800A247C5 /* Tagged */,
 			);
 			productName = HCF;
 			productReference = CAE90FBC2D485005005C104E /* HCF.app */;
@@ -102,6 +105,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */,
+				CA26ACE52D4B1F8800A247C5 /* XCRemoteSwiftPackageReference "swift-tagged" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CAE90FBD2D485005005C104E /* Products */;
@@ -349,6 +353,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA26ACE52D4B1F8800A247C5 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-tagged";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.0;
+			};
+		};
 		CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-sharing";
@@ -360,6 +372,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA26ACE62D4B1F8800A247C5 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA26ACE52D4B1F8800A247C5 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
+		};
 		CAE910372D4A034D005C104E /* Sharing */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CAE910362D4A034D005C104E /* XCRemoteSwiftPackageReference "swift-sharing" */;
