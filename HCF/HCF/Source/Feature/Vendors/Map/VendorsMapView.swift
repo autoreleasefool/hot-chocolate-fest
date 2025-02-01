@@ -2,8 +2,8 @@ import MapKit
 import SwiftUI
 
 struct VendorsMapView: View {
-	let vendors: [Vendor]
-	@State private var vendor: Vendor?
+	let vendors: [VendorsViewModel.VendorListItem]
+	@State private var vendor: VendorsViewModel.VendorListItem?
 
 	var body: some View {
 		Map(selection: $vendor) {
@@ -13,7 +13,7 @@ struct VendorsMapView: View {
 			}
 		}
 		.navigationDestination(item: $vendor) {
-			VendorDetailsView(vendor: $0)
+			VendorDetailsView(vendorId: $0.id)
 		}
 	}
 }

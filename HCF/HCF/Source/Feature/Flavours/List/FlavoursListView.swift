@@ -1,6 +1,5 @@
 import Flow
 import Sharing
-import SwiftData
 import SwiftUI
 
 struct FlavoursListView: View {

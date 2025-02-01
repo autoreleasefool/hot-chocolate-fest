@@ -20,6 +20,10 @@ enum Resources {
 		let description: String
 		let vendor_name: String
 		let vendor_url: URL
+
+		var id: HCF.Flavour.ID {
+			.init(Int(name.prefix(4).dropFirst())!)
+		}
 	}
 
 	struct Region: Decodable {
@@ -28,6 +32,7 @@ enum Resources {
 	}
 
 	struct Location: Decodable {
+		let id: String
 		let name: String
 		let lat: Double
 		let lon: Double

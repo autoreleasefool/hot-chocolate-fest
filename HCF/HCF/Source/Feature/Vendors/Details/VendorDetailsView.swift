@@ -1,13 +1,12 @@
-import SwiftData
 import SwiftUI
 
 struct VendorDetailsView: View {
-	let vendor: Vendor
+	let vendorId: Vendor.ID
 
 	var body: some View {
 		ScrollView {
-			Text(vendor.name)
+			Text("Vendor")
 		}
-		.navigationTitle(vendor.name)
+		.navigationTitle("Vendor")
 	}
 }

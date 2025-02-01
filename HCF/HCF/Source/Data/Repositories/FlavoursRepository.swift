@@ -34,7 +34,7 @@ final class FlavoursRepository: ObservableObject {
 
 		return flavours.map {
 			Flavour(
-				id: .init(Int($0.name.prefix(4).dropFirst())!),
+				id: $0.id,
 				name: $0.name.dropFirst(6).trimmingCharacters(in: .whitespaces),
 				description: retrieveDescription(fromText: $0.description),
 				dates: retrieveAvailability(fromText: $0.description),

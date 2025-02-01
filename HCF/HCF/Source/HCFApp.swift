@@ -4,15 +4,12 @@ import SwiftUI
 struct HCFApp: App {
 
 	@StateObject private var flavoursRepository = FlavoursRepository()
-
+	@StateObject private var vendorsRepository = VendorsRepository()
 	var body: some Scene {
 		WindowGroup {
 			ContentView()
-				.modelContainer(for: [
-					FavouriteFlavour.self,
-					TastedFlavour.self
-				])
 				.environmentObject(flavoursRepository)
+				.environmentObject(vendorsRepository)
 		}
 	}
 }

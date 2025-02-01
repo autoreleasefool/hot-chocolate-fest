@@ -1,31 +1,35 @@
 import SwiftUI
 
 struct VendorsView: View {
+	@EnvironmentObject private var vendorsRepository: VendorsRepository
+
+	@State private var viewModel = VendorsViewModel()
 	@State private var query: String = ""
-	@State private var vendors: [Vendor]?
-	@State private var display: Display = .map
 
 	var body: some View {
 		content
-			.task { await refreshVendors() }
+			.task {
+				viewModel.setup(repository: vendorsRepository)
+				await viewModel.task()
+			}
 			.task(id: query) {
 				do {
 					try await Task.sleep(for: .milliseconds(300))
-					await refreshVendors()
+					await viewModel.handleAction(.didChangeQuery(query))
 				} catch {}
 			}
 			.navigationTitle("Locations")
 			.navigationBarTitleDisplayMode(.inline)
 			.searchable(text: $query)
-			.navigationDestination(for: Vendor.self) {
-				VendorDetailsView(vendor: $0)
+			.navigationDestination(for: Vendor.ID.self) { vendorId in
+				VendorDetailsView(vendorId: vendorId)
 			}
 			.toolbar {
 				ToolbarItem(placement: .topBarTrailing) {
 					Button {
-						display.toggle()
+						Task { await viewModel.handleAction(.didToggleDisplayMode) }
 					} label: {
-						Image(systemName: display == .map ? "list.bullet" : "map")
+						Image(systemName: viewModel.displayMode == .map ? "list.bullet" : "map")
 					}
 				}
 			}
@@ -33,33 +37,18 @@ struct VendorsView: View {
 
 	@ViewBuilder
 	private var content: some View {
-		if let vendors {
-			switch display {
-			case .map:
-				VendorsMapView(vendors: vendors)
-			case .list:
-				VendorsListView(vendors: vendors)
-			}
-		} else {
-			ProgressView()
+		switch viewModel.displayMode {
+		case .map:
+			VendorsMapView(vendors: viewModel.vendors)
+		case .list:
+			VendorsListView(vendors: viewModel.vendors)
 		}
-	}
-
-	private func refreshVendors() async {
-		self.vendors = (try? await VendorRepository.shared.loadVendors(matching: query)) ?? []
 	}
 }
 
 extension VendorsView {
-	enum Display {
-		case map
-		case list
-
-		mutating func toggle() {
-			self = switch self {
-			case .list: .map
-			case .map: .list
-			}
-		}
+	enum Action {
+		case didChangeQuery(String)
+		case didToggleDisplayMode
 	}
 }

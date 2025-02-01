@@ -5,12 +5,11 @@ import Tagged
 struct Vendor: Identifiable, Hashable {
 	typealias ID = Tagged<Vendor, String>
 
+	let id: ID
 	let name: String
 	let location: Location
 	let url: URL
 	let flavours: [Flavour.ID]
-
-	var id: ID { .init(name) }
 }
 
 extension Vendor {
