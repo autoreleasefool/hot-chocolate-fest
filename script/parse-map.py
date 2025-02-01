@@ -3,6 +3,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Location:
+    id: str
     name: str
     lat: float
     lon: float
@@ -26,9 +27,10 @@ for data_section in data_sections:
     for data_location in data_section[4]:
         lat = data_location[4][4][0]
         lon = data_location[4][4][1]
-        name = data_location[5][0]
+        id = data_location[4][6]
+        name = data_location[5][0][0]
 
-        section.locations.append(Location(name=name, lat=lat, lon=lon))
+        section.locations.append(Location(id=id, name=name, lat=lat, lon=lon))
 
     sections.append(section)
 
