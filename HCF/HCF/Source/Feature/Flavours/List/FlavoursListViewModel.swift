@@ -1,6 +1,7 @@
 import Sharing
 import SwiftUI
 
+@MainActor
 @Observable
 final class FlavoursListViewModel {
 
@@ -20,9 +21,18 @@ final class FlavoursListViewModel {
 
 	private(set) var query: String = ""
 	private(set) var filter: Filter = .all
-	private(set) var tags: Set<Flavour.Tag> = []
+	private(set) var tags: Set<Flavour.Tag> = Set(Flavour.Tag.allCases)
+	var showOnlyMatchingTags: Bool = false {
+		didSet {
+			Task { await refreshFlavours() }
+		}
+	}
 
 	private(set) var flavours: [FlavourListItem] = []
+
+	var tagIds: String {
+		Flavour.Tag.allCases.map { "\($0.title)-\(isTagEnabled($0))" }.joined(separator: "-")
+	}
 
 	// Dependencies
 	private var repository: FlavoursRepository!
@@ -57,7 +67,6 @@ final class FlavoursListViewModel {
 		tags.contains(tag)
 	}
 
-	@MainActor
 	func getFlavour(id: Flavour.ID) -> Flavour? {
 		repository.fetch(id: id)
 	}
@@ -102,7 +111,7 @@ final class FlavoursListViewModel {
 				.filter { filter != .favourites || isFavourite($0) }
 				.filter { filter != .tasted || isTasted($0) || isFavourite($0) }
 				.filter { filter != .wishlist || isWishlist($0) }
-				.filter { tags.isEmpty || !tags.isDisjoint(with: $0.tags) }
+				.filter { showOnlyMatchingTags ? !$0.tags.isDisjoint(with: tags) : $0.tags.allSatisfy { tags.contains($0) } }
 				.map {
 					FlavourListItem(
 						id: $0.id,

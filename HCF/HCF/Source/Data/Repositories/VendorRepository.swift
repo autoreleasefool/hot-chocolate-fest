@@ -19,7 +19,7 @@ actor VendorRepository {
 				Vendor(
 					name: $0.name,
 					location: .init(latitude: $0.lat, longitude: $0.lon),
-					url: URL(string: "")!,
+					url: URL(string: "google.com")!,
 					flavours: []
 				)
 			}

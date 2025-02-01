@@ -3,7 +3,6 @@ import Sharing
 import SwiftData
 import SwiftUI
 
-
 struct FlavoursListView: View {
 	@EnvironmentObject private var flavoursRepository: FlavoursRepository
 
@@ -13,13 +12,17 @@ struct FlavoursListView: View {
 	var body: some View {
 		List {
 			Section {
-				HFlow {
-					ForEach(Flavour.Tag.allCases) { tag in
-						badge(for: tag, isEnabled: viewModel.isTagEnabled(tag))
+				DisclosureGroup("Filters") {
+					Toggle("Show only drinks matching tags", isOn: $viewModel.showOnlyMatchingTags)
+
+					HFlow {
+						ForEach(Flavour.Tag.allCases) { tag in
+							badge(for: tag, isEnabled: viewModel.isTagEnabled(tag))
+						}
 					}
+					.id(viewModel.tagIds)
 				}
 			}
-			.listRowInsets(EdgeInsets(top: 2, leading: 0, bottom: 0, trailing: 0))
 			.listRowBackground(Color.clear)
 
 			Section {
@@ -48,11 +51,7 @@ struct FlavoursListView: View {
 			}
 		}
 		.navigationDestination(for: Flavour.ID.self) { flavourId in
-			if let flavour = viewModel.getFlavour(id: flavourId) {
-				FlavourDetailsView(flavour: flavour)
-			} else {
-				EmptyView()
-			}
+			FlavourDetailsView(flavourId: flavourId)
 		}
 	}
 
@@ -82,15 +81,11 @@ struct FlavoursListView: View {
 				await viewModel.handleListAction(.didToggleTag(tag))
 			}
 		} label: {
-			Text(tag.title)
-				.font(.subheadline)
-				.padding(6)
-				.foregroundStyle(tag.foreground(isEnabled: isEnabled))
-				.background {
-					Capsule()
-						.fill(tag.background(isEnabled: isEnabled))
-						.stroke((tag.foreground(isEnabled: isEnabled)))
-				}
+			Badge(
+				text: tag.title,
+				foreground: tag.foreground(isEnabled: isEnabled),
+				background: tag.background(isEnabled: isEnabled)
+			)
 		}
 		.buttonStyle(.plain)
 	}
@@ -120,18 +115,18 @@ extension Flavour.Tag {
 		}
 	}
 
-	func background(isEnabled: Bool) -> some ShapeStyle {
+	func background(isEnabled: Bool) -> Color {
 		if isEnabled {
 			switch self {
-			case .alcohol: Color.red.tertiary
-			case .coconut: Color.gray.tertiary
-			case .dairyFreeOrVegan: Color.green.tertiary
-			case .glutenFree: Color.orange.tertiary
-			case .nuts: Color.brown.tertiary
-			case .sesame: Color.yellow.tertiary
+			case .alcohol: Color.red.opacity(0.4)
+			case .coconut: Color.gray.opacity(0.4)
+			case .dairyFreeOrVegan: Color.green.opacity(0.4)
+			case .glutenFree: Color.orange.opacity(0.4)
+			case .nuts: Color.brown.opacity(0.4)
+			case .sesame: Color.yellow.opacity(0.4)
 			}
 		} else {
-			Color.gray.tertiary
+			Color.gray.opacity(0.4)
 		}
 	}
 }
