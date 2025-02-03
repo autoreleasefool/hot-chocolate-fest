@@ -16,12 +16,25 @@ struct VendorDetailsView: View {
 			if let vendor = viewModel.vendor {
 				mapSection(vendor)
 			}
+
+			if let flavours = viewModel.flavours {
+				flavourSection(flavours)
+			}
 		}
 		.task {
 			viewModel.setup(vendorsRepository: vendorsRepository, flavoursRepository: flavoursRepository)
 			await viewModel.task()
 		}
 		.navigationTitle(viewModel.vendor?.name ?? "Loading...")
+	}
+
+	@ViewBuilder
+	private func flavourSection(_ flavours: [VendorDetailsViewModel.FlavourListItem]) -> some View {
+		Section {
+			ForEach(flavours) { flavour in
+				Text(flavour.name)
+			}
+		}
 	}
 
 	@ViewBuilder

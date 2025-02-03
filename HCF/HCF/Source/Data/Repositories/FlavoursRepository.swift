@@ -15,6 +15,10 @@ final class FlavoursRepository: ObservableObject {
 		flavours?[id]
 	}
 
+	func fetch(ids: [Flavour.ID]) -> [Flavour] {
+		ids.compactMap { flavours?[$0] }
+	}
+
 	func fetch() async throws -> [Flavour] {
 		if flavours == nil {
 			let flavours = try await loadFlavours()

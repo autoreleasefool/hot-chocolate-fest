@@ -18,7 +18,7 @@ final class VendorsRepository: ObservableObject {
 		if vendors == nil {
 			let vendors = try await loadVendors()
 			self.vendorsList = vendors.map(\.id)
-			self.vendors = Dictionary(uniqueKeysWithValues: vendors.map { ($0.id, $0) })
+			self.vendors = Dictionary(uniqueKeysWithValues: vendors.map { ($0.id, $0) })			
 		}
 
 		return self.vendorsList.compactMap { vendors?[$0] }

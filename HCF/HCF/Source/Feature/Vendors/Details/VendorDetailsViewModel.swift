@@ -9,7 +9,8 @@ final class VendorDetailsViewModel {
 	// MARK: Properties
 
 	let vendorId: Vendor.ID
-	var vendor: Vendor?
+	private(set) var vendor: Vendor?
+	private(set) var flavours: [FlavourListItem]?
 
 	var mapPosition: MapCameraPosition {
 		.region(.init(center: vendor?.location.coordinate ?? .init(), latitudinalMeters: 200, longitudinalMeters: 200))
@@ -45,10 +46,22 @@ final class VendorDetailsViewModel {
 	}
 
 	func task() async {
-		vendor = vendorsRepository.fetch(id: vendorId)
+		guard let vendor = vendorsRepository.fetch(id: vendorId) else { return }
+		self.vendor = vendor
+		flavours = flavoursRepository.fetch(ids: vendor.flavours)
+			.map { FlavourListItem(id: $0.id, name: $0.name, description: $0.description, tags: $0.tags) }
 	}
 
 	var isFavourite: Bool { vendor?.flavours.contains(where: { favourites.contains($0) }) ?? false }
 	var isTasted: Bool { vendor?.flavours.contains(where: { tasted.contains($0) }) ?? false }
 	var isWishlist: Bool { vendor?.flavours.contains(where: { wishlist.contains($0) }) ?? false }
+}
+
+extension VendorDetailsViewModel {
+	struct FlavourListItem: Identifiable {
+		let id: Flavour.ID
+		let name: String
+		let description: [String]
+		let tags: Set<Flavour.Tag>
+	}
 }
