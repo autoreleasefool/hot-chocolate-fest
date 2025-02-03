@@ -4,63 +4,63 @@ import SwiftUI
 @Observable
 final class VendorsViewModel {
 
-    // MARK: Properties
+	// MARK: Properties
 
-    private(set) var query: String = ""
+	private(set) var query: String = ""
 	private(set) var vendors: [VendorListItem] = []
-    private(set) var displayMode: DisplayMode = .map
+	private(set) var displayMode: DisplayMode = .map
 
-    // Dependencies
-    private var repository: VendorsRepository?
+	// Dependencies
+	private var repository: VendorsRepository?
 
 	// MARK: Initialization
 
 	init() {}
 
-    // MARK: Public
+	// MARK: Public
 
-    func setup(repository: VendorsRepository) {
-        self.repository = repository
-    }
+	func setup(repository: VendorsRepository) {
+		self.repository = repository
+	}
 
-    func task() async {
-        await refreshVendors()
-    }
+	func task() async {
+		await refreshVendors()
+	}
 
-    func handleAction(_ action: VendorsView.Action) async {
-        switch action {
-            case let .didChangeQuery(query): await changeQuery(query)
-            case .didToggleDisplayMode: await toggleDisplayMode()
-        }
-    }
+	func handleAction(_ action: VendorsView.Action) async {
+		switch action {
+			case let .didChangeQuery(query): await changeQuery(query)
+			case .didToggleDisplayMode: await toggleDisplayMode()
+		}
+	}
 
-    // MARK: Private
+	// MARK: Private
 
-    private func refreshVendors() async {
-        do {
-            let vendors = try await repository?.fetch() ?? []
-            self.vendors = vendors
-                .filter { query.isEmpty || $0.name.localizedCaseInsensitiveContains(query) }
-                .map {
-                    VendorListItem(
-                        id: $0.id,
-                        name: $0.name,
-                        location: $0.location
-                    )
-                }
-        } catch {
-            print(error)
-        }
-    }
+	private func refreshVendors() async {
+		do {
+			let vendors = try await repository?.fetch() ?? []
+			self.vendors = vendors
+				.filter { query.isEmpty || $0.name.localizedCaseInsensitiveContains(query) }
+				.map {
+					VendorListItem(
+						id: $0.id,
+						name: $0.name,
+						location: $0.location
+					)
+				}
+		} catch {
+			print(error)
+		}
+	}
 
-    private func changeQuery(_ query: String) async {
-        self.query = query
-        await refreshVendors()
-    }
+	private func changeQuery(_ query: String) async {
+		self.query = query
+		await refreshVendors()
+	}
 
-    private func toggleDisplayMode() async {
-        self.displayMode.toggle()
-    }
+	private func toggleDisplayMode() async {
+		self.displayMode.toggle()
+	}
 }
 
 extension VendorsViewModel {
@@ -78,9 +78,9 @@ extension VendorsViewModel {
 }
 
 extension VendorsViewModel {
-    struct VendorListItem: Identifiable, Hashable {
-        let id: Vendor.ID
-        let name: String
-        let location: Vendor.Location
-    }
+	struct VendorListItem: Identifiable, Hashable {
+		let id: Vendor.ID
+		let name: String
+		let location: Vendor.Location
+	}
 }
